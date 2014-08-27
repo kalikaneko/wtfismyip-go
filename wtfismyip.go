@@ -18,13 +18,15 @@ type IPInfo struct {
 
 
 func main() {
-	var doAddr, doHost, doLoc, doISP, doAll bool
+	var doAddr, doHost, doLoc, doISP, doAll, doNotCurse bool
+	var pref string
 
 	flag.BoolVar(&doAddr, "i", false, "Show my fucking IP Address")
 	flag.BoolVar(&doHost, "h", false, "Show my fucking Hostname")
 	flag.BoolVar(&doLoc, "l", false, "Show my fucking Location")
 	flag.BoolVar(&doISP, "p", false, "Show my fucking ISP")
 	flag.BoolVar(&doAll, "a", false, "Show me fucking Everything")
+	flag.BoolVar(&doNotCurse, "cursenot", false, "Fucking say fucking motherfucker")
 	flag.Parse()
 
 	client := &http.Client{}
@@ -56,11 +58,17 @@ func main() {
 		doAll = true
 	}
 
+	if doNotCurse {
+		pref = "Your"
+	} else {
+		pref = "Your Fucking"
+	}
+
 	if doAll {
-		fmt.Println("Fucking Addr:\t", ipinfo.YourFuckingIPAddress)
-		fmt.Println("Fucking Host:\t", ipinfo.YourFuckingHostname)
-		fmt.Println("Fucking ISP :\t", ipinfo.YourFuckingISP)
-		fmt.Println("Fucking Loc :\t", ipinfo.YourFuckingLocation)
+		fmt.Println(pref, "Addr:\t", ipinfo.YourFuckingIPAddress)
+		fmt.Println(pref, "Host:\t", ipinfo.YourFuckingHostname)
+		fmt.Println(pref, "ISP :\t", ipinfo.YourFuckingISP)
+		fmt.Println(pref, "Loc :\t", ipinfo.YourFuckingLocation)
 		return
 	}
 
