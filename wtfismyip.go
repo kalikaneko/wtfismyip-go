@@ -41,8 +41,8 @@ func main() {
 		log.Fatalln(err)
 	}
 	fmt.Println("Fucking Addr:\t", ipinfo.YourFuckingIPAddress)
-	fmt.Println("Fucking Loc :\t", ipinfo.YourFuckingLocation)
 	fmt.Println("Fucking Host:\t", ipinfo.YourFuckingHostname)
 	fmt.Println("Fucking ISP :\t", ipinfo.YourFuckingISP)
+	fmt.Println("Fucking Loc :\t", ipinfo.YourFuckingLocation)
 }
 
